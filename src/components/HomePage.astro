@@ -124,12 +124,22 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
         <div class="media-tile tall">{lang === 'en' ? 'Photo wall' : '照片牆'}</div>
         <div class="media-tile">{lang === 'en' ? 'Workshop' : '工作坊'}</div>
         <div class="media-tile">{lang === 'en' ? 'Community' : '社區現場'}</div>
-        <div class="media-tile wide media-video-placeholder">
-          <div class="play-icon" aria-hidden="true">▶</div>
-          <strong>{lang === 'en' ? 'Featured video coming soon' : '精選影片　即將上傳'}</strong>
-          <small>{lang === 'en' ? 'Upload to YouTube, paste the embed code here.' : '影片上傳 YouTube 後，把嵌入碼貼到這裡。'}</small>
+        <div class="media-tile wide media-video-embed">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco"
+            title={lang === 'en' ? '100-Year Life Lab video playlist' : '青銀共創百歲人生影片播放清單'}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
+      <p class="media-cta">
+        <a href="https://www.youtube.com/playlist?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco" target="_blank" rel="noopener noreferrer">
+          {lang === 'en' ? 'See the full YouTube playlist →' : '到 YouTube 看完整影片播放清單 →'}
+        </a>
+      </p>
     </div>
   </section>
 

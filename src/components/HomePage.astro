@@ -1,0 +1,138 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { home, site, type Locale } from '../data/site';
+
+type Props = {
+  lang?: Locale;
+};
+
+const { lang = 'zh-tw' } = Astro.props;
+const copy = home[lang] as {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  primaryCta: string;
+  secondaryCta: string;
+  themesTitle: string;
+  themes: { title: string; text: string }[];
+  projectTitle: string;
+  projectIntro: string;
+  mediaTitle: string;
+  mediaIntro: string;
+  outcomesTitle: string;
+  outcomesIntro: string;
+  invitationTitle: string;
+  invitationText: string;
+};
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? '/' : value}` : value}`;
+---
+
+<BaseLayout lang={lang} title={lang === 'en' ? 'Home' : undefined} description={site.description[lang]}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">{copy.eyebrow}</span>
+        <h1><span class="highlight-line">{copy.title}</span></h1>
+        <p class="hero-lede">{copy.subtitle}</p>
+        <div class="hero-actions">
+          <a class="button primary" href={path('/projects/')}>{copy.primaryCta}</a>
+          <a class="button secondary" href={path('/media/')}>{copy.secondaryCta}</a>
+        </div>
+      </div>
+
+      <div class="collage" aria-label={lang === 'en' ? 'Hand-drawn media collage placeholder' : '手繪影像拼貼佔位'}>
+        <div class="sticky-note">
+          {lang === 'en' ? 'Field note' : '現場筆記'}
+          <small>{lang === 'en' ? 'Add real activity dates here.' : '之後放正式活動日期。'}</small>
+        </div>
+        <div class="photo-card large">
+          <span class="tape"></span>
+          <div class="photo-fill">{lang === 'en' ? 'Featured photo' : '代表照片'}</div>
+        </div>
+        <div class="photo-card small">
+          <span class="tape"></span>
+          <div class="photo-fill">{lang === 'en' ? 'Video still' : '影片縮圖'}</div>
+        </div>
+        <svg class="doodle-arrow" viewBox="0 0 180 80" aria-hidden="true">
+          <path d="M12 45 C 42 10, 82 12, 112 38 S 150 62, 168 32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+          <path d="M150 24 L170 31 L156 49" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-heading">
+        <h2>{copy.themesTitle}</h2>
+      </div>
+      <div class="cards-grid">
+        {copy.themes.map((theme, index) => (
+          <article class="note-card">
+            <span class="card-number">{index + 1}</span>
+            <h3>{theme.title}</h3>
+            <p>{theme.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-heading">
+        <h2>{copy.projectTitle}</h2>
+        <p>{copy.projectIntro}</p>
+      </div>
+      <div class="project-strip">
+        {[1, 2, 3].map((item) => (
+          <article class="project-card">
+            <div class="project-thumb">{lang === 'en' ? `Project image ${item}` : `計畫照片 ${item}`}</div>
+            <div>
+              <h3>{lang === 'en' ? `Project Story ${item}` : `計畫故事 ${item}`}</h3>
+              <p>{lang === 'en' ? 'Replace this card with the official project summary.' : '後續替換成正式計畫摘要。'}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-heading">
+        <h2>{copy.mediaTitle}</h2>
+        <p>{copy.mediaIntro}</p>
+      </div>
+      <div class="media-wall">
+        <div class="media-tile tall">{lang === 'en' ? 'Photo wall' : '照片牆'}</div>
+        <div class="media-tile">{lang === 'en' ? 'Workshop' : '工作坊'}</div>
+        <div class="media-tile">{lang === 'en' ? 'Community' : '社區現場'}</div>
+        <div class="media-tile wide">{lang === 'en' ? 'Featured video embed' : '精選影片嵌入'}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container scrapbook">
+      <div class="section-heading">
+        <h2>{copy.outcomesTitle}</h2>
+        <p>{copy.outcomesIntro}</p>
+      </div>
+      <div class="scrapbook-card">
+        <strong>{lang === 'en' ? 'Press clipping area' : '剪報區塊'}</strong>
+        <p>{lang === 'en' ? 'News links, activity records, and public outcomes will be collected here.' : '這裡整理新聞連結、活動紀錄與公開成果，避免先塞不存在的資料。'}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="invite">
+        <h2>{copy.invitationTitle}</h2>
+        <p>{copy.invitationText}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Qingyin 100 Life">
+  <rect width="64" height="64" rx="14" fill="#fbf6ee"/>
+  <path d="M15 34c7-12 21-16 34-5" fill="none" stroke="#2d2a26" stroke-width="4" stroke-linecap="round"/>
+  <path d="M18 43c8 5 20 4 29-3" fill="none" stroke="#2a6b6e" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="23" cy="25" r="5" fill="#f7c84b" stroke="#2d2a26" stroke-width="2"/>
+  <circle cx="43" cy="25" r="5" fill="#fb7185" stroke="#2d2a26" stroke-width="2"/>
+</svg>

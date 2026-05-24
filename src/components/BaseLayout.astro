@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import { navItems, site, type Locale } from '../data/site';
+
+type Props = {
+  title?: string;
+  description?: string;
+  lang?: Locale;
+};
+
+const { title, description, lang = 'zh-tw' } = Astro.props;
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+const link = (path: string) => `${base}${path}`;
+const isEnglish = lang === 'en';
+const homePath = isEnglish ? '/en/' : '/';
+const languagePath = isEnglish ? '/' : '/en/';
+const pageTitle = title ? `${title} | ${site.shortName[lang]}` : site.name[lang];
+const metaDescription = description ?? site.description[lang];
+---
+
+<!doctype html>
+<html lang={lang === 'zh-tw' ? 'zh-Hant-TW' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={metaDescription} />
+    <link rel="icon" type="image/svg+xml" href={link('/favicon.svg')} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <nav class="container nav" aria-label={isEnglish ? 'Primary navigation' : '主選單'}>
+          <a class="brand" href={link(homePath)} aria-label={site.name[lang]}>
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 42 42" width="28" height="28">
+                <path d="M8 23c5-9 15-11 25-3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M10 30c6 4 15 3 22-2" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <span>{site.shortName[lang]}</span>
+          </a>
+          <div class="nav-links">
+            {navItems[lang].map((item) => <a class="nav-link" href={link(item.path)}>{item.label}</a>)}
+            <a class="language-link" href={link(languagePath)}>{isEnglish ? '中文' : 'EN'}</a>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="footer">
+        <div class="container footer-inner">
+          <span>{site.name[lang]}</span>
+          <span>{isEnglish ? 'Built with Astro and GitHub Pages.' : '使用 Astro 與 GitHub Pages 建置。'}</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

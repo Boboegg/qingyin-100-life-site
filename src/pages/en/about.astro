@@ -1,5 +1,125 @@
 ---
-import PageShell from '../../components/PageShell.astro';
+import BaseLayout from '../../components/BaseLayout.astro';
+
+const lang = 'en';
+const title = 'About';
+const intro = 'The 100-Year Life Lab is a Higher Education USR Hub project rooted in Tengliaozai, Zhongpu Township, Chiayi County, where university students and local residents co-create intergenerational learning.';
 ---
 
-<PageShell lang="en" slug="about" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">About</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Project Overview</h2>
+        <p>The project is led by Professor Yu-Ching Chen of the Department of Adult and Continuing Education, National Chung Cheng University, in partnership with Tengliaozai community in Shihke Village, Zhongpu Township, Chiayi County.</p>
+      </div>
+
+      <dl class="about-meta">
+        <div>
+          <dt>Short name</dt>
+          <dd>100-Year Life Lab</dd>
+        </div>
+        <div>
+          <dt>Project code</dt>
+          <dd>HUB 4-2 (USR Hub Project)</dd>
+        </div>
+        <div>
+          <dt>Funding</dt>
+          <dd>University Social Responsibility (USR) Hub, Ministry of Education, Taiwan</dd>
+        </div>
+        <div>
+          <dt>Principal Investigator</dt>
+          <dd>Prof. Yu-Ching Chen (Department of Adult and Continuing Education, NCCU)</dd>
+        </div>
+        <div>
+          <dt>Project Coordinator</dt>
+          <dd>Bo-Ru Tseng (PhD candidate, Adult and Continuing Education, NCCU)</dd>
+        </div>
+        <div>
+          <dt>Field site</dt>
+          <dd>Tengliaozai Community, Shihke Village, Zhongpu Township, Chiayi County</dd>
+        </div>
+        <div>
+          <dt>SDGs</dt>
+          <dd>SDG 3 Good Health and Well-being, SDG 4 Quality Education, SDG 11 Sustainable Communities</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>From Phase to Phase</h2>
+        <p>Three iterations of the project, from intergenerational solidarity to a shared imagination of a 100-year life.</p>
+      </div>
+
+      <ol class="about-timeline">
+        <li>
+          <span class="phase">Phase 1</span>
+          <h3>Self-help, Mutual-help, Shared-help: Intergenerational Solidarity for Rural Chiayi</h3>
+          <p>Started with intergenerational solidarity in rural Chiayi, laying the foundation for later co-creation work.</p>
+        </li>
+        <li>
+          <span class="phase">Phase 2</span>
+          <h3>Co-Creation for Rural Community Well-Being</h3>
+          <p>Moved from solidarity to co-creation, deepening the two-way practice between the university and the community.</p>
+        </li>
+        <li>
+          <span class="phase">Phase 3 (current)</span>
+          <h3>Co-Creating a 100-Year Life Across Generations</h3>
+          <p>Frames health promotion, cultural transmission, and local governance under a shared "100-year life" imagination.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Three Things We Care About</h2>
+        <p>Not three separate themes — three facets of the same life imagination.</p>
+      </div>
+
+      <div class="about-themes">
+        <article>
+          <span class="num">1</span>
+          <h3>Intergenerational Learning</h3>
+          <p>Real-world spaces where generations meet, learn, and collaborate — students bring university resources, elders bring life knowledge.</p>
+        </article>
+        <article>
+          <span class="num">2</span>
+          <h3>100-Year Life</h3>
+          <p>Starting from an aging society, exploring dignified and connected ways of living — "useful in age, enough is enough" as the practical premise.</p>
+        </article>
+        <article>
+          <span class="num">3</span>
+          <h3>Local Practice</h3>
+          <p>Through courses, research, and action, we connect communities, schools, health stations, and local organizations to make USR a lived daily practice.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>How We Work</h2>
+        <p>Three teams operate in parallel, supported by monthly health promotion, annual cultural events, and ongoing cross-generation workshops.</p>
+      </div>
+      <ul class="about-method">
+        <li><strong>Research team</strong>: led by NCCU Adult and Continuing Education, with collaborators from Gerontology, Foreign Languages, and English Teaching.</li>
+        <li><strong>Community volunteer team "Tengliao 2.0"</strong>: self-organized by residents; in 2022 they founded the Tengxi Community Co-Prosperity Association, moving the community from "being served" to "self-development."</li>
+        <li><strong>Student team "Vegetable Together"</strong>: cross-departmental students; since 2016 over 170 participations, growing, learning, and selling vegetables alongside elders.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

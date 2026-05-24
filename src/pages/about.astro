@@ -1,5 +1,125 @@
 ---
-import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../components/BaseLayout.astro';
+
+const lang = 'zh-tw';
+const title = '關於我們';
+const intro = '青銀共創百歲人生 USR Hub 計畫，扎根嘉義縣中埔鄉籐寮仔社區，邀請大學師生與在地居民共同實踐青銀共學。';
 ---
 
-<PageShell lang="zh-tw" slug="about" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">關於 / About</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>計畫概覽</h2>
+        <p>本計畫由國立中正大學成人及繼續教育學系陳毓璟教授主持，與嘉義縣中埔鄉石硦村籐寮仔社區共學共作。</p>
+      </div>
+
+      <dl class="about-meta">
+        <div>
+          <dt>計畫對外簡稱</dt>
+          <dd>青銀共創百歲人生</dd>
+        </div>
+        <div>
+          <dt>計畫代碼</dt>
+          <dd>HUB 4-2（USR Hub 計畫）</dd>
+        </div>
+        <div>
+          <dt>補助來源</dt>
+          <dd>教育部大學社會責任實踐計畫（USR Hub）</dd>
+        </div>
+        <div>
+          <dt>計畫主持人</dt>
+          <dd>陳毓璟 教授（國立中正大學成人及繼續教育學系）</dd>
+        </div>
+        <div>
+          <dt>計畫聯絡人</dt>
+          <dd>曾柏儒（中正大學成教所博士班）</dd>
+        </div>
+        <div>
+          <dt>執行場域</dt>
+          <dd>嘉義縣中埔鄉石硦村籐寮仔社區</dd>
+        </div>
+        <div>
+          <dt>對應 SDGs</dt>
+          <dd>SDG 3 健康與福祉、SDG 4 品質教育、SDG 11 永續社區</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>計畫名稱沿革</h2>
+        <p>從第一期針對「偏鄉代間團結」的揚升計畫，到當前以「百歲人生」為共同想像的青銀共創，名稱反映議題與場域實踐的演進。</p>
+      </div>
+
+      <ol class="about-timeline">
+        <li>
+          <span class="phase">第一期</span>
+          <h3>自助、互助、共助：嘉義縣偏鄉居民代間團結幸福揚升計畫</h3>
+          <p>以偏鄉居民代間團結為起點，奠定後續青銀共學的場域基礎。</p>
+        </li>
+        <li>
+          <span class="phase">第二期</span>
+          <h3>青銀共創偏鄉社區幸福揚升計畫</h3>
+          <p>從代間團結走向青銀共創，深化大學與社區的雙向實踐。</p>
+        </li>
+        <li>
+          <span class="phase">第三期（現任）</span>
+          <h3>青銀共創百歲人生</h3>
+          <p>以「百歲人生」作為共同生活想像，整合健康促進、文化傳承與地方治理。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>我們關心的三件事</h2>
+        <p>不是三個獨立主題，而是同一個生活想像的三個切面。</p>
+      </div>
+
+      <div class="about-themes">
+        <article>
+          <span class="num">1</span>
+          <h3>青銀共學</h3>
+          <p>讓不同世代在真實場域中相遇、學習與合作；學生帶大學資源，長輩帶生活智慧。</p>
+        </article>
+        <article>
+          <span class="num">2</span>
+          <h3>百歲人生</h3>
+          <p>從高齡化社會出發，探索更有尊嚴與連結的生活想像，把「老有所用、夠用就好」視為實踐前提。</p>
+        </article>
+        <article>
+          <span class="num">3</span>
+          <h3>地方實踐</h3>
+          <p>透過課程、研究與行動，連結社區、學校、衛生所與在地組織，讓 USR 落地成具體的日常運作。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>實踐方法</h2>
+        <p>研究團隊、社區志工團隊、學生團隊三線並進，配合每月健康促進、每年文化傳承活動與不定期跨世代工作坊。</p>
+      </div>
+      <ul class="about-method">
+        <li><strong>研究團隊</strong>：以中正大學成教系為核心，跨高齡所、外文系、英語教學所協作。</li>
+        <li><strong>社區志工團隊「籐寮 2.0」</strong>：由社區居民自主組成，2022 年協助成立「嘉義縣籐惜社區共好協會」，社區從「被服務」走向「自主發展」。</li>
+        <li><strong>學生團隊「菜一起」</strong>：跨系所學生組隊，2016 年起累計超過 170 人次參與，與長輩共耕、共學、共售。</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

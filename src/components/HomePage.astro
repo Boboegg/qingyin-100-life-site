@@ -86,16 +86,31 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
         <p>{copy.projectIntro}</p>
       </div>
       <div class="project-strip">
-        {[1, 2, 3].map((item) => (
-          <article class="project-card">
-            <div class="project-thumb">{lang === 'en' ? `Project image ${item}` : `計畫照片 ${item}`}</div>
-            <div>
-              <h3>{lang === 'en' ? `Project Story ${item}` : `計畫故事 ${item}`}</h3>
-              <p>{lang === 'en' ? 'Replace this card with the official project summary.' : '後續替換成正式計畫摘要。'}</p>
-            </div>
-          </article>
-        ))}
+        <article class="project-card">
+          <div class="project-thumb">2022</div>
+          <div>
+            <h3>{lang === 'en' ? 'Rural Reverse-Flow Residency' : '洄游農村駐村'}</h3>
+            <p>{lang === 'en' ? 'Cross-departmental summer residency that surfaced moso bamboo as a community specialty and earned the Environmental Sustainability team award.' : '跨系所暑期駐村，發現麻竹筍特產、開發醬筍，獲環境永續獎。'}</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-thumb">2022</div>
+          <div>
+            <h3>{lang === 'en' ? 'Food and Farming Intergenerational Camp' : '食農教育代間體驗營'}</h3>
+            <p>{lang === 'en' ? 'Elders teach children, both plant and share meals — a complete field-to-table arc, 240+ participations.' : '長輩當小朋友的老師，共耕、共煮、共食，累計 240+ 人次。'}</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-thumb">2022</div>
+          <div>
+            <h3>{lang === 'en' ? 'Founding the Co-Prosperity Association' : '協助成立籐惜共好協會'}</h3>
+            <p>{lang === 'en' ? 'The community moved from "being served" to "self-development," running its own operations and grants.' : '社區從「被服務」轉「自主發展」，自行運營與申請計畫。'}</p>
+          </div>
+        </article>
       </div>
+      <p class="project-strip-cta">
+        <a href={path('/projects/')}>{lang === 'en' ? 'View all projects →' : '看全部計畫與活動 →'}</a>
+      </p>
     </div>
   </section>
 
@@ -120,10 +135,27 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
         <h2>{copy.outcomesTitle}</h2>
         <p>{copy.outcomesIntro}</p>
       </div>
-      <div class="scrapbook-card">
-        <strong>{lang === 'en' ? 'Press clipping area' : '剪報區塊'}</strong>
-        <p>{lang === 'en' ? 'News links, activity records, and public outcomes will be collected here.' : '這裡整理新聞連結、活動紀錄與公開成果，避免先塞不存在的資料。'}</p>
+      <div class="home-stat-grid">
+        <article>
+          <div class="stat-num">170+</div>
+          <div class="stat-label">{lang === 'en' ? '"Vegetable Together" student participations' : '學生「菜一起」累計人次'}</div>
+        </article>
+        <article>
+          <div class="stat-num">300+</div>
+          <div class="stat-label">{lang === 'en' ? 'Health promotion participations' : '健康促進累計人次'}</div>
+        </article>
+        <article>
+          <div class="stat-num">240+</div>
+          <div class="stat-label">{lang === 'en' ? 'Cross-generation activity participations' : '跨世代活動累計人次'}</div>
+        </article>
+        <article>
+          <div class="stat-num">400+</div>
+          <div class="stat-label">{lang === 'en' ? 'Total participations in 2025' : '2025 年度總參與人次'}</div>
+        </article>
       </div>
+      <p class="project-strip-cta">
+        <a href={path('/outcomes/')}>{lang === 'en' ? 'See full outcomes →' : '看完整成果 →'}</a>
+      </p>
     </div>
   </section>
 

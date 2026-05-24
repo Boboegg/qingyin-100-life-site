@@ -191,28 +191,72 @@ src/content/news/zh-tw/
 
 ## 6. 加新影片到「影像紀錄」 難度⭐⭐
 
-**影片不要上傳到 GitHub repo**（重檔案會把 repo 撐大、Pages 流量上限超快用完）。
+🔴 **絕對不要把影片上傳到 GitHub repo**（重檔案會把 repo 撐大、Pages 流量上限超快用完，部署也會變慢）。
 
-正確做法：
+### 三個影片來源選項對照
 
-1. 影片先傳 YouTube（可設「不公開連結」如果不想公開搜尋）
-2. 在頁面用 `<iframe>` 嵌入：
+| 方案 | 適合 | 優點 | 限制 |
+|------|------|------|------|
+| **A. YouTube（建議主力）** | 對外公開、長期穩定 | 不耗自家流量、自動多解析度、字幕自動生成 + 自動翻譯多語、章節 / 縮圖 / 分析齊全；可設「不公開」只有拿到網址才能看 | 帳號被停或影片被檢舉就會消失（罕見） |
+| **B. Google Drive** | 暫時、私用、權限可控 | 完全自家控管、不用第三方帳號 | 耗自己 Drive 額度（免費 15 GB）；無多解析度；無字幕切換 / 翻譯；權限改錯整支影片消失；載入慢 |
+| **C. 中正大學影音平台 / 學校自有平台** | 學術正式發表、計畫成果歸校 | 屬學校資產、學術正式 | 嵌入流程因校 IT 而異、需先申請 / 上傳 |
+
+### YouTube 字幕三層級（為什麼建議 A）
+
+1. **自動字幕**：YouTube AI 自動聽打中英文（中文準確度 80-90%），免費，可後台改正
+2. **上傳 SRT/VTT 字幕檔**：需精準時用（學術發表必選）
+3. **自動翻譯**：開字幕後 YouTube 自動翻 100+ 語言 → 本網站雙語直接受惠
+
+Google Drive 只能把字幕「燒」進影片本身，無法切換、無法翻譯、無法修。
+
+### 操作步驟（YouTube）
+
+1. 把影片傳到 YouTube。發布前選**可見性**：
+   - **公開**：全網路可搜尋
+   - **不公開**：只有拿到網址的人能看（建議多數情境用這個）
+   - **私人**：只有你選的 Google 帳號可看（不能嵌入）
+2. 影片頁右下「分享」→「嵌入」→ 複製 `<iframe>` 程式碼
+3. 把 iframe 程式碼貼進 `src/pages/media.astro` 或對應頁面：
 
 ```astro
 <iframe
   width="560"
   height="315"
   src="https://www.youtube.com/embed/影片ID"
-  title="影片標題"
+  title="影片中文標題"
   loading="lazy"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
 ```
 
-把「影片ID」換成 YouTube 連結 `v=` 後面那串。
+把 `影片ID` 換成 YouTube 網址 `?v=` 後面那串字母數字（例如 `dQw4w9WgXcQ`）。
 
-學校的「中正大學影音平台」嵌入碼也是類似格式。
+`title` 一定要填中文標題（無障礙 + SEO）。
+
+### 操作步驟（Google Drive，若你真的要用）
+
+1. 上傳影片到 Google Drive
+2. 右鍵 → **取得連結** → 改成「**知道連結的任何人 可檢視**」
+3. 從網址抓 `FILE_ID`（網址中 `/d/` 與 `/view` 之間那串）
+4. 嵌入：
+
+```astro
+<iframe
+  src="https://drive.google.com/file/d/FILE_ID/preview"
+  width="640"
+  height="360"
+  title="影片標題"
+  allow="autoplay"
+  allowfullscreen>
+</iframe>
+```
+
+⚠️ 注意：將來改 Drive 資料夾結構或誤改權限，影片會 404；網站不會自動發警告。
+
+### 操作步驟（中正大學影音平台）
+
+學校平台會給一段嵌入碼，貼進頁面即可。格式跟 YouTube iframe 類似，視各校 IT 而定，沒有則向校方詢問。
 
 ---
 

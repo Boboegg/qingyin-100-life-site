@@ -1188,3 +1188,58 @@ a {
     gap: 0.4rem;
   }
 }
+
+/* 首頁同步區塊（2026-05-24 新增） */
+.project-strip-cta {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.project-strip-cta a {
+  display: inline-block;
+  font-weight: 800;
+  color: var(--teal, #2a6b6e);
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 1px;
+}
+
+.project-strip-cta a:hover {
+  color: var(--coral, #fb7185);
+}
+
+.home-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.home-stat-grid article {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(45, 42, 38, 0.16);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  transform: rotate(-0.4deg);
+  box-shadow: 4px 4px 0 rgba(45, 42, 38, 0.08);
+}
+
+.home-stat-grid article:nth-child(2) {
+  transform: rotate(0.6deg);
+  background: rgba(247, 200, 75, 0.18);
+}
+
+.home-stat-grid article:nth-child(3) {
+  transform: rotate(-0.3deg);
+  background: rgba(42, 107, 110, 0.08);
+}
+
+.home-stat-grid article:nth-child(4) {
+  transform: rotate(0.5deg);
+  background: rgba(251, 113, 133, 0.1);
+}
+
+@media (max-width: 640px) {
+  .home-stat-grid article {
+    transform: none;
+  }
+}

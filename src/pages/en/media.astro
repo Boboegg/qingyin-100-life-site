@@ -1,5 +1,128 @@
 ---
-import PageShell from '../../components/PageShell.astro';
+import BaseLayout from '../../components/BaseLayout.astro';
+
+const lang = 'en';
+const title = 'Media Notebook';
+const intro = 'Videos, photos, and clippings — a slowly growing visual notebook of intergenerational learning in the hills of Chiayi.';
 ---
 
-<PageShell lang="en" slug="media" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Media</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Video Playlist</h2>
+        <p>All events, courses, and short films collected on one YouTube playlist.</p>
+      </div>
+
+      <div class="featured-video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco"
+          title="100-Year Life Lab video playlist"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <p class="media-cta">
+        <a href="https://www.youtube.com/playlist?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco" target="_blank" rel="noopener noreferrer">
+          Open the full playlist on YouTube →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Themes</h2>
+        <p>The playlist will later split into thematic sub-lists; for now everything lives in one main list.</p>
+      </div>
+
+      <div class="media-theme-grid">
+        <article class="media-theme-card">
+          <div class="badge">📚</div>
+          <h3>Courses & Workshops</h3>
+          <p>Food-and-farming, "Playing Memories, Sewing Hearts," "Starlight Love" lanterns, AI workshops.</p>
+        </article>
+        <article class="media-theme-card">
+          <div class="badge">🏞</div>
+          <h3>Community Field</h3>
+          <p>Tengliaozai Happy Classroom, health promotion clinic days, community day trips, culture exhibitions.</p>
+        </article>
+        <article class="media-theme-card">
+          <div class="badge">🎉</div>
+          <h3>Festivals & Showcases</h3>
+          <p>2026 Tengliaozai Blessing Lantern Festival, community planner exhibition, silver-age festival.</p>
+        </article>
+        <article class="media-theme-card">
+          <div class="badge">🎓</div>
+          <h3>Academic Events</h3>
+          <p>Online intergenerational learning symposium, teaching-research talks, poster sessions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Photo Wall</h2>
+        <p>Photos are being curated by year and theme; they go live only after consent is confirmed.</p>
+      </div>
+
+      <div class="photo-placeholder-grid">
+        <article class="photo-placeholder">
+          <span class="year">2022</span>
+          <span class="caption">Rural Reverse-Flow Residency</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2022</span>
+          <span class="caption">Food and Farming Camp</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2023</span>
+          <span class="caption">Health Clinic Days</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2024</span>
+          <span class="caption">Co-Prosperity Association</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2025</span>
+          <span class="caption">Playing Memories Workshop</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2026</span>
+          <span class="caption">Blessing Lantern Festival</span>
+        </article>
+      </div>
+
+      <p class="placeholder-note">📸 No photo with a recognizable face goes live until the person consents. Years and themes are place-holders that will be replaced as consented photos arrive.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Image Ethics</h2>
+        <p>Our red lines for visual records.</p>
+      </div>
+      <ul class="about-method">
+        <li><strong>Personal consent</strong>: no recognizable face goes online without consent.</li>
+        <li><strong>No exaggeration, no staging</strong>: we publish what the field actually looks like, not what looks best for PR.</li>
+        <li><strong>Elders and children first</strong>: when in doubt, photograph backs, hands, or environmental details instead.</li>
+        <li><strong>Attribution</strong>: third-party images are always credited.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

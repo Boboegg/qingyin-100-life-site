@@ -1317,3 +1317,103 @@ a {
 .media-cta a:hover {
   color: var(--coral, #fb7185);
 }
+
+/* ============================================================
+   Media 頁專用樣式（2026-05-24 新增）
+   ============================================================ */
+
+.featured-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 14px 32px rgba(45, 42, 38, 0.18);
+}
+
+.featured-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.media-theme-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1.5px solid rgba(45, 42, 38, 0.14);
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.media-theme-card .badge {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.media-theme-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.media-theme-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(45, 42, 38, 0.82);
+  font-size: 0.93rem;
+}
+
+.photo-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.photo-placeholder {
+  aspect-ratio: 4 / 3;
+  border: 2px dashed rgba(45, 42, 38, 0.28);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(42, 107, 110, 0.08), rgba(247, 200, 75, 0.1));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: rgba(45, 42, 38, 0.6);
+  position: relative;
+}
+
+.photo-placeholder::before {
+  content: "📷";
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  opacity: 0.55;
+}
+
+.photo-placeholder .year {
+  background: var(--yellow, #f7c84b);
+  color: var(--ink, #2d2a26);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+}
+
+.photo-placeholder .caption {
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 0.5rem;
+}

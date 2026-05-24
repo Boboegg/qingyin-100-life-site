@@ -1,5 +1,128 @@
 ---
-import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../components/BaseLayout.astro';
+
+const lang = 'zh-tw';
+const title = '影像紀錄';
+const intro = '影片、照片、剪報——把山裡這幾年的青銀共學現場，慢慢拼成一份可以翻閱的影像手札。';
 ---
 
-<PageShell lang="zh-tw" slug="media" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">影像紀錄 / Media</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>影片播放清單</h2>
+        <p>所有活動、課程、紀錄片，集中在這一個 YouTube 播放清單。</p>
+      </div>
+
+      <div class="featured-video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco"
+          title="青銀共創百歲人生影片播放清單"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <p class="media-cta">
+        <a href="https://www.youtube.com/playlist?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco" target="_blank" rel="noopener noreferrer">
+          直接到 YouTube 看完整清單與更多影片 →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>影像主題分區</h2>
+        <p>後續會依主題拆成多份播放清單，目前先以單一主清單呈現。</p>
+      </div>
+
+      <div class="media-theme-grid">
+        <article class="media-theme-card">
+          <div class="badge">📚</div>
+          <h3>課程與工作坊</h3>
+          <p>食農教育、玩出回憶縫出心意、星光傳愛、AI 應用工作坊現場。</p>
+        </article>
+        <article class="media-theme-card">
+          <div class="badge">🏞</div>
+          <h3>社區現場</h3>
+          <p>籐寮仔快樂學堂、健康促進駐診、社區小旅行、文化展。</p>
+        </article>
+        <article class="media-theme-card">
+          <div class="badge">🎉</div>
+          <h3>節慶與成果展</h3>
+          <p>2026 籐寮仔祈福燈會、社規師成果展、銀齡樂活節。</p>
+        </article>
+        <article class="media-theme-card">
+          <div class="badge">🎓</div>
+          <h3>學術活動</h3>
+          <p>代間學習線上研討會、教學研究發表、海報展。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>照片牆</h2>
+        <p>照片依年份與主題整理中，待當事人授權確認後上線。</p>
+      </div>
+
+      <div class="photo-placeholder-grid">
+        <article class="photo-placeholder">
+          <span class="year">2022</span>
+          <span class="caption">洄游農村駐村</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2022</span>
+          <span class="caption">食農體驗營</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2023</span>
+          <span class="caption">健康促進駐診</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2024</span>
+          <span class="caption">籐惜協會運作</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2025</span>
+          <span class="caption">玩出回憶工作坊</span>
+        </article>
+        <article class="photo-placeholder">
+          <span class="year">2026</span>
+          <span class="caption">祈福燈會</span>
+        </article>
+      </div>
+
+      <p class="placeholder-note">📸 所有照片上線前都需與當事人取得授權；目前以年份與主題保留位置，照片到位後再依序替換。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>影像授權底線</h2>
+        <p>我們對影像紀錄的幾條紅線。</p>
+      </div>
+      <ul class="about-method">
+        <li><strong>當事人同意</strong>：含可辨識人臉的照片，未經當事人同意不上線。</li>
+        <li><strong>不誇大、不擺拍</strong>：以現場真實樣貌為主，不為宣傳重新組裝場景。</li>
+        <li><strong>長輩與兒童優先保護</strong>：必要時改拍背影、手部、環境細節。</li>
+        <li><strong>影像引用透明</strong>：他人拍攝或第三方提供的影像會註明來源。</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,5 +1,85 @@
 ---
-import PageShell from '../../components/PageShell.astro';
+import BaseLayout from '../../components/BaseLayout.astro';
+
+const lang = 'en';
+const title = 'Contact';
+const intro = 'Whether you are a research partner, community worker, journalist, or a student curious about "Vegetable Together," we welcome your message.';
 ---
 
-<PageShell lang="en" slug="contact" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Project Contacts</h2>
+        <p>The right person to reach first.</p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Principal Investigator</h3>
+          <p class="contact-role">Prof. Yu-Ching Chen</p>
+          <p class="contact-affil">Department of Adult and Continuing Education<br />National Chung Cheng University</p>
+          <p class="contact-line">📧 <a href="mailto:eduycc@ccu.edu.tw">eduycc@ccu.edu.tw</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Project Coordinator</h3>
+          <p class="contact-role">Bo-Ru Tseng</p>
+          <p class="contact-affil">PhD Candidate, Adult and Continuing Education, NCCU</p>
+          <p class="contact-line">📧 Please note "100-Year Life Lab" in the subject line</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Affiliation</h2>
+        <p>The project is hosted by the Department of Adult and Continuing Education, NCCU.</p>
+      </div>
+
+      <div class="affil-block">
+        <p><strong>Department of Adult and Continuing Education, National Chung Cheng University</strong></p>
+        <p>Department site: <a href="https://cyiaace.ccu.edu.tw/" target="_blank" rel="noopener noreferrer">cyiaace.ccu.edu.tw</a></p>
+        <p>USR Office: <a href="https://usr.ccu.edu.tw/" target="_blank" rel="noopener noreferrer">usr.ccu.edu.tw</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Open to Collaborate</h2>
+        <p>We welcome the following kinds of partnership.</p>
+      </div>
+
+      <ul class="invite-list">
+        <li>
+          <h4>Academic Collaboration</h4>
+          <p>Intergenerational learning, health promotion, community practice, AI in older-adult learning.</p>
+        </li>
+        <li>
+          <h4>Communities and Local Organizations</h4>
+          <p>Local revitalization, intergenerational co-learning models, cultural transmission, community self-development experience exchange.</p>
+        </li>
+        <li>
+          <h4>Schools and Public Agencies</h4>
+          <p>USR program experience, cross-school field collaboration, curriculum design consultation.</p>
+        </li>
+        <li>
+          <h4>Media and Coverage</h4>
+          <p>Interviews, on-site filming, documentary partnerships. Please reach us in advance so we can coordinate consent with the community.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

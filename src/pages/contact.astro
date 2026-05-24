@@ -1,5 +1,85 @@
 ---
-import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../components/BaseLayout.astro';
+
+const lang = 'zh-tw';
+const title = '聯絡合作';
+const intro = '不論你是研究夥伴、社區工作者、媒體朋友，還是想加入「菜一起」的學生，都歡迎與我們聯絡。';
 ---
 
-<PageShell lang="zh-tw" slug="contact" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">聯絡合作 / Contact</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>計畫聯絡資訊</h2>
+        <p>第一時間最適合的聯繫窗口。</p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>計畫主持人</h3>
+          <p class="contact-role">陳毓璟　教授</p>
+          <p class="contact-affil">國立中正大學<br />成人及繼續教育學系</p>
+          <p class="contact-line">📧 <a href="mailto:eduycc@ccu.edu.tw">eduycc@ccu.edu.tw</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>計畫聯絡人</h3>
+          <p class="contact-role">曾柏儒</p>
+          <p class="contact-affil">中正大學成教所博士班</p>
+          <p class="contact-line">📧 來信請主旨註明「青銀共創百歲人生」</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>所屬單位</h2>
+        <p>本計畫由中正大學成人及繼續教育學系執行。</p>
+      </div>
+
+      <div class="affil-block">
+        <p><strong>國立中正大學　成人及繼續教育學系</strong></p>
+        <p>系所網站：<a href="https://cyiaace.ccu.edu.tw/" target="_blank" rel="noopener noreferrer">cyiaace.ccu.edu.tw</a></p>
+        <p>USR 辦公室：<a href="https://usr.ccu.edu.tw/" target="_blank" rel="noopener noreferrer">usr.ccu.edu.tw</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>合作邀請</h2>
+        <p>我們歡迎以下類型的合作。</p>
+      </div>
+
+      <ul class="invite-list">
+        <li>
+          <h4>學術合作</h4>
+          <p>代間學習、健康促進、社區實踐、AI 在高齡學習的應用等主題。</p>
+        </li>
+        <li>
+          <h4>社區與在地組織</h4>
+          <p>地方創生、青銀共學模式、文化傳承、社區自主發展經驗交流。</p>
+        </li>
+        <li>
+          <h4>學校與公共部門</h4>
+          <p>USR 計畫經驗分享、跨校場域協作、學程設計諮詢。</p>
+        </li>
+        <li>
+          <h4>媒體與報導</h4>
+          <p>採訪、活動拍攝、紀錄片合作；請事前來信讓我們協助安排場域與對象同意。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

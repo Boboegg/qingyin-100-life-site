@@ -838,3 +838,353 @@ a {
     transform: none;
   }
 }
+
+/* ============================================================
+   Projects / Outcomes / Contact 頁專用樣式（2026-05-24 新增）
+   ============================================================ */
+
+/* --- Projects 頁 --- */
+.proj-set {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.proj-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(45, 42, 38, 0.14);
+  border-radius: 18px;
+  padding: 1.5rem 1.5rem 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.proj-card .proj-year {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--coral, #fb7185);
+  color: var(--paper, #fbf6ee);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+
+.proj-card h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.4;
+}
+
+.proj-card .proj-meta {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted, #6d665c);
+  font-weight: 600;
+}
+
+.proj-card p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgba(45, 42, 38, 0.85);
+}
+
+.proj-card .proj-meta-secondary {
+  font-size: 0.86rem;
+  color: var(--muted, #6d665c);
+  font-style: italic;
+}
+
+.proj-card .proj-award {
+  margin-top: auto;
+  padding: 0.6rem 0.85rem;
+  background: rgba(247, 200, 75, 0.25);
+  border-left: 3px solid var(--yellow, #f7c84b);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.proj-events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.proj-events li {
+  border-left: 3px dashed rgba(42, 107, 110, 0.3);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+}
+
+.proj-events h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--teal, #2a6b6e);
+}
+
+.proj-events p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgba(45, 42, 38, 0.82);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.course-grid article {
+  background: var(--paper-deep, #f2e7d8);
+  padding: 1.2rem 1.25rem;
+  border-radius: 12px;
+}
+
+.course-grid h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.course-grid p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.course-note {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--muted, #6d665c);
+  font-style: italic;
+}
+
+/* --- Outcomes 頁 --- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.stat-grid article {
+  text-align: center;
+  background: rgba(42, 107, 110, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  border: 2px solid rgba(42, 107, 110, 0.18);
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--teal, #2a6b6e);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink, #2d2a26);
+}
+
+.award-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.award-list li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(45, 42, 38, 0.12);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  align-items: start;
+}
+
+.award-year {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--coral, #fb7185);
+}
+
+.award-list h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.award-list p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(45, 42, 38, 0.82);
+}
+
+.seminar-card {
+  background: rgba(247, 200, 75, 0.15);
+  border: 2px solid rgba(247, 200, 75, 0.5);
+  border-radius: 16px;
+  padding: 1.5rem 1.6rem;
+}
+
+.seminar-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.seminar-card .seminar-meta {
+  font-size: 0.88rem;
+  color: var(--muted, #6d665c);
+  margin: 0 0 0.75rem;
+}
+
+.seminar-card code {
+  background: rgba(45, 42, 38, 0.08);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+}
+
+.seminar-card p {
+  margin: 0 0 0.6rem;
+  line-height: 1.65;
+}
+
+.seminar-card a {
+  color: var(--teal, #2a6b6e);
+  font-weight: 700;
+  border-bottom: 2px solid currentColor;
+}
+
+.placeholder-note {
+  background: rgba(45, 42, 38, 0.05);
+  border-left: 3px solid var(--muted, #6d665c);
+  padding: 0.85rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.placeholder-note a {
+  color: var(--teal, #2a6b6e);
+  font-weight: 700;
+  border-bottom: 1px dashed currentColor;
+}
+
+/* --- Contact 頁 --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(45, 42, 38, 0.14);
+  border-radius: 16px;
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.contact-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--teal, #2a6b6e);
+  text-transform: uppercase;
+}
+
+.contact-card .contact-role {
+  margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.contact-card .contact-affil {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(45, 42, 38, 0.85);
+}
+
+.contact-card .contact-line {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contact-card .contact-line a {
+  color: var(--coral, #fb7185);
+  font-weight: 700;
+  border-bottom: 2px solid currentColor;
+}
+
+.affil-block {
+  background: var(--paper-deep, #f2e7d8);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.affil-block p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.affil-block a {
+  color: var(--teal, #2a6b6e);
+  font-weight: 700;
+  border-bottom: 1px solid currentColor;
+}
+
+.invite-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.invite-list li {
+  background: rgba(251, 113, 133, 0.08);
+  border: 1.5px solid rgba(251, 113, 133, 0.25);
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+}
+
+.invite-list h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--coral-deep, #cf465d);
+}
+
+.invite-list p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: rgba(45, 42, 38, 0.82);
+}
+
+@media (max-width: 640px) {
+  .award-list li {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}

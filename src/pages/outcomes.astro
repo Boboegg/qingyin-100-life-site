@@ -1,5 +1,104 @@
 ---
-import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../components/BaseLayout.astro';
+
+const lang = 'zh-tw';
+const title = '成果與報導';
+const intro = '不是 KPI 報表，而是一群人在山裡，把日子一場接一場、一年接一年慢慢過出來的累積。';
 ---
 
-<PageShell lang="zh-tw" slug="outcomes" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">成果與報導 / Outcomes</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>累積參與</h2>
+        <p>數字背後是一張張臉、一次次見面。</p>
+      </div>
+
+      <div class="stat-grid">
+        <article>
+          <div class="stat-num">170+</div>
+          <div class="stat-label">學生團隊「菜一起」累計參與人次</div>
+        </article>
+        <article>
+          <div class="stat-num">300+</div>
+          <div class="stat-label">健康促進活動累計參與人次</div>
+        </article>
+        <article>
+          <div class="stat-num">240+</div>
+          <div class="stat-label">跨世代融合系列活動累計人次</div>
+        </article>
+        <article>
+          <div class="stat-num">400+</div>
+          <div class="stat-label">2025 年度總參與人次</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>外部肯定</h2>
+        <p>競賽與獎項是過程中的途中休息點，不是終點。</p>
+      </div>
+
+      <ul class="award-list">
+        <li>
+          <span class="award-year">2022</span>
+          <div>
+            <h4>水保局大專生洄游農村競賽　團體獎「環境永續獎」</h4>
+            <p>由跨系所學生團隊 + 籐寮仔快樂學堂共同完成。</p>
+          </div>
+        </li>
+        <li>
+          <span class="award-year">2022</span>
+          <div>
+            <h4>水保局大專生洄游農村競賽　個人獎「創智才獎」</h4>
+            <p>本計畫聯絡人曾柏儒獲頒。</p>
+          </div>
+        </li>
+        <li>
+          <span class="award-year">2025</span>
+          <div>
+            <h4>遠見 USR 大學社會責任獎（第七屆）</h4>
+            <p>計畫於 11–12 月完成投件報名。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>學術活動：代間學習線上研討會</h2>
+        <p>把場域實踐帶回學術社群，也把學術帶回場域。</p>
+      </div>
+
+      <div class="seminar-card">
+        <h3>共創全齡友善社會：代間學習融入課程之教學研究成果發表暨代間方案學術研討會</h3>
+        <p class="seminar-meta">形式：線上會議 + 線上海報展｜補助：科技部 <code>MOST 110-2410-H-194-066</code>、高等教育深耕計畫</p>
+        <p>研討會包含主題演講、教學研究發表、口頭摘要與線上海報展示，並串接代間共學跨域學分學程的學程招生。</p>
+        <p><a href="https://eggcake.wixsite.com/intergenerational" target="_blank" rel="noopener noreferrer">前往研討會官網 →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>媒體報導</h2>
+        <p>陸續整理中，後續將以剪報簿形式呈現。</p>
+      </div>
+      <p class="placeholder-note">📰 媒體報導內容彙整中。如您有相關報導歡迎來信告知，或參考下方<a href="/qingyin-100-life-site/contact/">聯絡合作</a>頁面。</p>
+    </div>
+  </section>
+</BaseLayout>

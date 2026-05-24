@@ -1,5 +1,120 @@
 ---
-import PageShell from '../../components/PageShell.astro';
+import BaseLayout from '../../components/BaseLayout.astro';
+
+const lang = 'en';
+const title = 'Projects and Practice';
+const intro = 'It started with a student team entering the community. Over time, an association, a community garden, courses, workshops, and a co-creation field site grew from it.';
 ---
 
-<PageShell lang="en" slug="projects" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Projects</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Three Pivotal Stories</h2>
+        <p>These three turned the project from "research" into a daily practice.</p>
+      </div>
+
+      <div class="proj-set">
+        <article class="proj-card">
+          <div class="proj-year">2022</div>
+          <h3>SWCB Rural Reverse-Flow Student Residency</h3>
+          <p class="proj-meta">Jul–Sep｜Tengliaozai Happy Classroom｜97 participations</p>
+          <p>Cross-departmental students lived in the community over summer, surfaced local needs, designed green-care companionship for elders, and built outreach services. They identified moso bamboo shoots as a local specialty and co-created a fermented bamboo shoot product with Auntie Mei-Zhen.</p>
+          <p class="proj-award"><strong>Awards</strong>　Team "Environmental Sustainability Award"｜Bo-Ru Tseng individual "Creative Talent Award"</p>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-year">2022</div>
+          <h3>Food and Farming Intergenerational Camp</h3>
+          <p class="proj-meta">First held Dec 9; ongoing｜Co-hosted with Zhongshan Elementary and Tengliaozai Happy Classroom</p>
+          <p>Elders became the teachers — guiding children through vegetables, planting, and shared meals. A complete "field to table" arc designed as an honest, multi-generational encounter.</p>
+          <p class="proj-meta-secondary">240+ participations to date.</p>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-year">2022</div>
+          <h3>Supporting the Founding of Tengxi Community Co-Prosperity Association</h3>
+          <p class="proj-meta">Founded Oct 28｜Self-organized by community residents</p>
+          <p>The project walked the community through the legal founding of an association. The community moved from "being served" to "self-development" — running its own operations, applying for grants, and selling its own produce. The Council of Agriculture's "Green Care" program followed.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Long-Running Field Activities</h2>
+        <p>The monthly and annual rhythm of going back to Tengliaozai.</p>
+      </div>
+
+      <ul class="proj-events">
+        <li>
+          <h4>Health Promotion Series</h4>
+          <p>Monthly clinic with Zhongpu Township Health Station: diabetes education, blood pressure, nutrition. 300+ participations.</p>
+        </li>
+        <li>
+          <h4>Cultural Transmission and Community Day Trips</h4>
+          <p>About 3 trips per year, 30–40 people each; includes community-curated events such as the "Paper-Aged Culture Exhibition."</p>
+        </li>
+        <li>
+          <h4>Intergenerational Integration Activities</h4>
+          <p>~60 people per session, 240+ accumulated. Food and farming, community garden, shared meals — all ongoing.</p>
+        </li>
+        <li>
+          <h4>"Playing Memories, Sewing Hearts" Workshop Series (2025)</h4>
+          <p>Seven sessions across Oct–Dec; hand-craft activities bridging students and elders.</p>
+        </li>
+        <li>
+          <h4>Silver-Age Festival "Happiness Hotel" Visit (Sep 9, 2025)</h4>
+          <p>35 students + 20 community participants; broadening elders' horizons and joy.</p>
+        </li>
+        <li>
+          <h4>"Starlight Love" Lantern-Making Workshop (Nov 23, 2025)</h4>
+          <p>Preparation for the year-end blessing lantern festival; cross-generation handcraft.</p>
+        </li>
+        <li>
+          <h4>AI Tools for Community Teaching Workshop (Jul 4, 2025)</h4>
+          <p>Bringing AI tools into rural community teaching — reimagining digital learning for elders.</p>
+        </li>
+        <li>
+          <h4>2026 Tengliaozai Blessing Lantern Festival & Community Planner Exhibition (Feb 13, 2026)</h4>
+          <p>Theme: "The moon is not dark, the heart-stars keep company." Community planner showcase, kiln-opening, saxophone, dance, lantern lighting, starlight dinner.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Courses Over the Years</h2>
+        <p>Formal credit courses run in parallel with field activities.</p>
+      </div>
+
+      <div class="course-grid">
+        <article>
+          <h4>Cross-Generation Integration Research</h4>
+          <p>Sociology + Education + Health Promotion; students conduct fieldwork in Tengliaozai.</p>
+        </article>
+        <article>
+          <h4>Social Gerontology</h4>
+          <p>Cross-disciplinary design promoting integration of multi-field knowledge.</p>
+        </article>
+        <article>
+          <h4>Health Promotion for Middle and Older Adults</h4>
+          <p>Strongly practice-based; students participate in community health activities.</p>
+        </article>
+      </div>
+      <p class="course-note">Note: Food and Farming Intergenerational Camp and Green-Care activities are field events, not credit-bearing courses.</p>
+    </div>
+  </section>
+</BaseLayout>

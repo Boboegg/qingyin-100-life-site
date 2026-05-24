@@ -1,5 +1,120 @@
 ---
-import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../components/BaseLayout.astro';
+
+const lang = 'zh-tw';
+const title = '計畫與實踐';
+const intro = '從一支學生隊伍進入社區開始，慢慢長出協會、菜園、課程、工作坊，以及一座青銀共創的學習場域。';
 ---
 
-<PageShell lang="zh-tw" slug="projects" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">計畫與實踐 / Projects</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>三個關鍵故事</h2>
+        <p>這三件事讓整個計畫從「研究」變成「日常」。</p>
+      </div>
+
+      <div class="proj-set">
+        <article class="proj-card">
+          <div class="proj-year">2022</div>
+          <h3>水保局大專生洄游農村競賽駐村</h3>
+          <p class="proj-meta">7–9 月｜籐寮仔快樂學堂｜97 人次參與</p>
+          <p>跨系所學生暑期駐村，從學生的視角發現社區問題、規劃綠色療癒陪伴長輩、發展外展服務。期間發現麻竹筍特產，與美蓁阿嬤合作開發醬筍與產品 LOGO。</p>
+          <p class="proj-award"><strong>獲獎</strong>　團體「環境永續獎」｜曾柏儒個人「創智才獎」</p>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-year">2022</div>
+          <h3>食農教育代間體驗營</h3>
+          <p class="proj-meta">12 月 9 日首辦，後續常態化｜與中山國小、籐寮仔快樂學堂合辦</p>
+          <p>邀請在地長輩當小朋友的老師，帶領認識蔬果、親手種植、共同備餐。把「產地到餐桌」做成一場世代真實相遇的活動。</p>
+          <p class="proj-meta-secondary">後續累計參與超過 240 人次。</p>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-year">2022</div>
+          <h3>協助社區成立「嘉義縣籐惜社區共好協會」</h3>
+          <p class="proj-meta">10 月 28 日｜社區居民自主組成</p>
+          <p>計畫陪伴社區走完協會立案流程，社區從「被服務」轉為「自主發展」。協會成立後自行運營、申請計畫、販售農產品；後續成功引進農委會水土保持局「綠色照顧」計畫。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>長線運作的場域活動</h2>
+        <p>每月、每年都會回到籐寮仔的固定節奏。</p>
+      </div>
+
+      <ul class="proj-events">
+        <li>
+          <h4>健康促進系列</h4>
+          <p>與中埔鄉衛生所每月駐診合作，內容含糖尿病教育、血壓量測、營養指導；累計超過 300 人次。</p>
+        </li>
+        <li>
+          <h4>文化傳承與社區小旅行</h4>
+          <p>每年約 3 次，每次 30–40 人；包含「紙好不老文化展」等社區自主策劃活動。</p>
+        </li>
+        <li>
+          <h4>跨世代融合系列活動</h4>
+          <p>每場約 60 人，累計 240 人次以上。食農體驗、社區菜園、共耕共食常態化。</p>
+        </li>
+        <li>
+          <h4>「玩出回憶，縫出心意」工作坊系列（2025）</h4>
+          <p>10–12 月共 7 場，以手作活動串連青年與長者。</p>
+        </li>
+        <li>
+          <h4>銀齡樂活節「幸福大飯店」參訪（2025/9/9）</h4>
+          <p>學生 35 人 + 場域 20 人，拓展長者視野與生活樂趣。</p>
+        </li>
+        <li>
+          <h4>「星光傳愛」燈籠製作工作坊（2025/11/23）</h4>
+          <p>為年底祈福燈會做準備，跨世代共同手作。</p>
+        </li>
+        <li>
+          <h4>AI 軟體在社區的教學與應用工作坊（2025/7/4）</h4>
+          <p>把 AI 工具帶入偏鄉社區教學，重新想像長者數位學習。</p>
+        </li>
+        <li>
+          <h4>2026 籐寮仔祈福燈會暨社規師成果展（2026/2/13）</h4>
+          <p>主題「月色不暗，心星為伴」；社規師成果展、開窯式、薩克斯風演奏、舞蹈表演、點燈儀式、星光晚餐。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>歷年開設課程</h2>
+        <p>正式學分課程與場域活動並進。</p>
+      </div>
+
+      <div class="course-grid">
+        <article>
+          <h4>跨世代融合研究課程</h4>
+          <p>結合社會學、教育學、健康促進，學生進入籐寮仔做田野。</p>
+        </article>
+        <article>
+          <h4>社會老年學課程</h4>
+          <p>跨學科設計，促進多學科知識融合。</p>
+        </article>
+        <article>
+          <h4>中高齡健康促進課程</h4>
+          <p>強調實踐性，學生參與社區健康促進活動。</p>
+        </article>
+      </div>
+      <p class="course-note">註：食農教育代間體驗營、綠色療癒屬「場域活動」性質，不是學分課程。</p>
+    </div>
+  </section>
+</BaseLayout>

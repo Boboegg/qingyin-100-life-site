@@ -1,5 +1,104 @@
 ---
-import PageShell from '../../components/PageShell.astro';
+import BaseLayout from '../../components/BaseLayout.astro';
+
+const lang = 'en';
+const title = 'Outcomes and Reports';
+const intro = 'Not a KPI dashboard — a slow accumulation of one event, one year at a time, with a community in the hills.';
 ---
 
-<PageShell lang="en" slug="outcomes" />
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Outcomes</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Accumulated Participation</h2>
+        <p>Behind every number is a face and a meeting that actually happened.</p>
+      </div>
+
+      <div class="stat-grid">
+        <article>
+          <div class="stat-num">170+</div>
+          <div class="stat-label">Student team "Vegetable Together" participations</div>
+        </article>
+        <article>
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Health promotion participations</div>
+        </article>
+        <article>
+          <div class="stat-num">240+</div>
+          <div class="stat-label">Cross-generation integration participations</div>
+        </article>
+        <article>
+          <div class="stat-num">400+</div>
+          <div class="stat-label">Total participations in 2025</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>External Recognition</h2>
+        <p>Awards are rest stops along the way, not the destination.</p>
+      </div>
+
+      <ul class="award-list">
+        <li>
+          <span class="award-year">2022</span>
+          <div>
+            <h4>SWCB Rural Reverse-Flow Competition — Team "Environmental Sustainability Award"</h4>
+            <p>Awarded to the cross-departmental student team working with the Tengliaozai Happy Classroom.</p>
+          </div>
+        </li>
+        <li>
+          <span class="award-year">2022</span>
+          <div>
+            <h4>SWCB Rural Reverse-Flow Competition — Individual "Creative Talent Award"</h4>
+            <p>Awarded to project coordinator Bo-Ru Tseng.</p>
+          </div>
+        </li>
+        <li>
+          <span class="award-year">2025</span>
+          <div>
+            <h4>7th Global Views USR Award</h4>
+            <p>Project submitted application during Nov–Dec 2025.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Academic Activity: Online Intergenerational Learning Symposium</h2>
+        <p>Bringing field practice back to the academic community, and vice versa.</p>
+      </div>
+
+      <div class="seminar-card">
+        <h3>Co-Creating an Age-Friendly Society: Intergenerational Learning in Curricula — Academic Symposium</h3>
+        <p class="seminar-meta">Format: online meeting + online poster session｜Funding: MOST <code>110-2410-H-194-066</code> and the Higher Education Sprout Project</p>
+        <p>The symposium included keynote talks, teaching-research presentations, oral abstracts, and an online poster exhibition, with admission information for the cross-disciplinary intergenerational learning program.</p>
+        <p><a href="https://eggcake.wixsite.com/intergenerational" target="_blank" rel="noopener noreferrer">Visit the symposium site →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Media Coverage</h2>
+        <p>Being curated — will appear as a scrapbook.</p>
+      </div>
+      <p class="placeholder-note">📰 Media coverage is being curated. If you have related coverage, please reach us via <a href="/qingyin-100-life-site/en/contact/">Contact</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

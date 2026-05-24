@@ -124,7 +124,11 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
         <div class="media-tile tall">{lang === 'en' ? 'Photo wall' : '照片牆'}</div>
         <div class="media-tile">{lang === 'en' ? 'Workshop' : '工作坊'}</div>
         <div class="media-tile">{lang === 'en' ? 'Community' : '社區現場'}</div>
-        <div class="media-tile wide">{lang === 'en' ? 'Featured video embed' : '精選影片嵌入'}</div>
+        <div class="media-tile wide media-video-placeholder">
+          <div class="play-icon" aria-hidden="true">▶</div>
+          <strong>{lang === 'en' ? 'Featured video coming soon' : '精選影片　即將上傳'}</strong>
+          <small>{lang === 'en' ? 'Upload to YouTube, paste the embed code here.' : '影片上傳 YouTube 後，把嵌入碼貼到這裡。'}</small>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+import { resourceItems } from '../../data/lab';
+
+const lang = 'en';
+const title = 'Resources';
+const intro = 'Resources are the lab’s shared library, using Tags to connect Research Themes, Field Projects, and the Credit Program.';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Resource Library</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>How Tags work</h2>
+        <p>Each resource is maintained once and appears across Research Themes, Field Projects, and the Credit Program through tags.</p>
+      </div>
+      <div class="portal-grid three">
+        <article class="portal-card">
+          <span class="tag-pill">research</span>
+          <h3>Research Themes</h3>
+          <p>Find outputs through intergenerational learning, Health Promotion, AI and Digital Health, and other themes.</p>
+        </article>
+        <article class="portal-card">
+          <span class="tag-pill">field</span>
+          <h3>Field Projects</h3>
+          <p>Find outputs through Young Village, Young Stay, Tengliaozai, and other field sites.</p>
+        </article>
+        <article class="portal-card">
+          <span class="tag-pill">program</span>
+          <h3>Credit Program</h3>
+          <p>Find outputs through Course Map, Community Practicum, Summer Residency, and student work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>First resource set</h2>
+        <p>This first set uses public descriptions only; photos and personal data still require consent checks.</p>
+      </div>
+      <div class="resource-grid">
+        {resourceItems.map((item) => (
+          <article class="resource-card">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+            <div class="relation-row">
+              <strong>Research Themes</strong>
+              <span>{item.relations.research.join(' / ')}</span>
+            </div>
+            <div class="relation-row">
+              <strong>Field Projects</strong>
+              <span>{item.relations.field.join(' / ')}</span>
+            </div>
+            <div class="relation-row">
+              <strong>Credit Program</strong>
+              <span>{item.relations.program.join(' / ')}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

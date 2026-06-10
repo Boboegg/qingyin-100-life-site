@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import { partnerNames, teamGroups } from '../data/lab';
+
+const lang = 'zh-tw';
+const title = '團隊與合作';
+const intro = '團隊與合作頁整理主持人、研究團隊、學生團隊與合作網絡，也保留對外聯絡入口。';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Team & Partners</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>LAB 團隊</h2>
+        <p>公開姓名與照片需由老師研究室確認；第一版先以角色與合作結構呈現。</p>
+      </div>
+      <div class="portal-grid two">
+        {teamGroups.map((group) => (
+          <article class="portal-card">
+            <span class="card-kicker">{group.tags[0]}</span>
+            <h3>{group.title[lang]}</h3>
+            <p>{group.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>合作網絡</h2>
+        <p>這些合作單位來自既有內容來源；後續若要放 logo 或照片，需再確認授權與正式名稱。</p>
+      </div>
+      <div class="partner-cloud">
+        {partnerNames[lang].map((partner) => <span>{partner}</span>)}
+      </div>
+      <p class="project-strip-cta">
+        <a href="/qingyin-100-life-site/contact/">聯絡合作 -></a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

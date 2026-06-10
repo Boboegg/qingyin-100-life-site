@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+import { researchThemes, resourceItems } from '../../data/lab';
+
+const lang = 'en';
+const title = 'Research Themes';
+const intro = 'Research themes are the lab’s academic front door and a tag system linking field projects, the credit program, and resources.';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Research Themes</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Six entry points</h2>
+        <p>Each theme is a way to find resources, course materials, and field stories.</p>
+      </div>
+      <div class="portal-grid three">
+        {researchThemes.map((theme) => (
+          <article class="portal-card">
+            <span class="card-kicker">{theme.tags[0]}</span>
+            <h3>{theme.title[lang]}</h3>
+            <p>{theme.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>How research connects to resources</h2>
+        <p>The resource library uses research themes as tags, so one output can be found from multiple contexts.</p>
+      </div>
+      <div class="resource-grid">
+        {resourceItems.map((item) => (
+          <article class="resource-card compact">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.relations.research.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

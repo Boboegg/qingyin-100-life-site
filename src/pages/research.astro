@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import { researchThemes, resourceItems } from '../data/lab';
+
+const lang = 'zh-tw';
+const title = '研究主題';
+const intro = '研究主題是 LAB 的學術門面，也是一組可以連回場域計畫、學分學程與成果資源的標籤。';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Research Themes</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>六個主題入口</h2>
+        <p>每個主題都不是孤立分類，而是後續成果、教材與場域故事的查找方式。</p>
+      </div>
+      <div class="portal-grid three">
+        {researchThemes.map((theme) => (
+          <article class="portal-card">
+            <span class="card-kicker">{theme.tags[0]}</span>
+            <h3>{theme.title[lang]}</h3>
+            <p>{theme.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>研究如何串聯成果</h2>
+        <p>成果資料庫會用研究主題作為標籤，讓同一份教材或活動紀錄可被不同脈絡找到。</p>
+      </div>
+      <div class="resource-grid">
+        {resourceItems.map((item) => (
+          <article class="resource-card compact">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.relations.research.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

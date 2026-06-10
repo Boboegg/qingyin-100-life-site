@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+import { programSections, resourceItems } from '../../data/lab';
+
+const lang = 'en';
+const title = 'Qingyin Intergenerational Credit Program';
+const intro = 'The credit program is the container for courses, community practicum, summer residency, and student work.';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Credit Program</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Talent-development path</h2>
+        <p>Course Map, healthy aging and health promotion, Community Practicum, Summer Residency, and student work are connected inside one program.</p>
+      </div>
+      <div class="relation-list">
+        {programSections.map((section) => (
+          <article>
+            <span class="card-kicker">{section.tags[0]}</span>
+            <h3>{section.title[lang]}</h3>
+            <p>{section.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Program-related resources</h2>
+        <p>Materials, practicum outputs, residency outputs, and symposium records can all connect back to the program and the resource library.</p>
+      </div>
+      <div class="resource-grid">
+        {resourceItems.filter((item) => item.relations.program.length > 0).map((item) => (
+          <article class="resource-card compact">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.relations.program.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

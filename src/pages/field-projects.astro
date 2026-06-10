@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import { fieldProjects, resourceItems } from '../data/lab';
+
+const lang = 'zh-tw';
+const title = '場域計畫';
+const intro = '場域計畫承接 Young Village、Young Stay、籐寮仔與跨世代關懷社區據點，讓每個現場都有可追蹤的故事與成果。';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Field Projects</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>場域不是附錄，是 LAB 的行動現場</h2>
+        <p>有些資料已經很完整，有些還在等老師研究室校正；頁面會清楚標示狀態，不編造細節。</p>
+      </div>
+      <div class="portal-grid two">
+        {fieldProjects.map((project) => (
+          <article class="portal-card field">
+            {project.eyebrow && <span class="tag-pill">{project.eyebrow[lang]}</span>}
+            <h3>{project.title[lang]}</h3>
+            <p>{project.summary[lang]}</p>
+            {project.detail && <p class="muted-note">{project.detail[lang]}</p>}
+            <div class="tag-row">
+              {project.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>場域相關成果</h2>
+        <p>成果與資源會標記對應場域，所以 Young Village / Young Stay / 籐寮仔都能自動串回相關內容。</p>
+      </div>
+      <div class="resource-grid">
+        {resourceItems.map((item) => (
+          <article class="resource-card compact">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.relations.field.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

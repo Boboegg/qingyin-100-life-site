@@ -1,0 +1,121 @@
+version: 1
+sourcepack_id: 20260610-lab-website-benchmarks
+project: qingyin-100-life-site
+created_at: 2026-06-10
+updated_at: 2026-06-10
+owner_runtime: codex
+collection_purpose: "Benchmark similar lab and research center websites for Qingyin 100-Year Life LAB Portal information architecture and visual/content patterns"
+
+privacy:
+  contains_secrets: false
+  contains_personal_data: false
+  notes: "Only public website URLs and paraphrased IA/design observations are stored. No tokens, cookies, OAuth values, or session headers."
+
+status:
+  archival_status: draft
+  verification_status: metadata_verified
+  citation_status: ready_for_internal_design_reference
+
+paths:
+  raw: raw/
+  notes: notes/
+  processed: processed/
+  handoff: handoff.md
+
+source_items:
+  - id: src-001
+    title: "University of New England Center for Healthy Aging"
+    source_type: web
+    url: "https://www.une.edu/cha"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public university center page; use for IA pattern, not copy."
+  - id: src-002
+    title: "Cornell Health Design Innovations Lab"
+    source_type: web
+    url: "https://ihf.cornell.edu/education-research/health-design-innovations-lab/"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public university lab page; use for structure and positioning only."
+  - id: src-003
+    title: "Georgetown Center for Healthy Aging"
+    source_type: web
+    url: "https://healthyaging.georgetown.edu/"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public university center page."
+  - id: src-004
+    title: "Rutgers Center for Healthy Aging Research"
+    source_type: web
+    url: "https://ifh.rutgers.edu/research/centers-and-programs/research-centers/center-for-healthy-aging-research/"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public institute center page."
+  - id: src-005
+    title: "UW-Madison CARE Center for Aging Research and Education"
+    source_type: web
+    url: "https://care.nursing.wisc.edu/"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public university center page."
+  - id: src-006
+    title: "Population Health Innovation Lab"
+    source_type: web
+    url: "https://pophealthinnovationlab.org/"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public nonprofit/program website; use for IA pattern."
+  - id: src-007
+    title: "University of Illinois Human Factors & Aging Laboratory"
+    source_type: web
+    url: "https://research.illinois.edu/researchunit/human-factors-aging-laboratory"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public lab directory page; concise metadata pattern."
+  - id: src-008
+    title: "Generations United Intergenerational Program Database"
+    source_type: web
+    url: "https://www.gu.org/home/ig-program-database/"
+    local_path: raw/source-list.md
+    retrieved_at: 2026-06-10
+    retrieved_by_runtime: codex
+    tool_or_connector: web
+    verification_status: metadata_verified
+    citation_usable: true
+    notes_path: processed/benchmark-summary.md
+    risk_notes: "Public database page; useful for tag/filter resource pattern."

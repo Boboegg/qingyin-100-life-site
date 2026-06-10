@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import { home, site, type Locale } from '../data/site';
+import { fieldProjects, labStats, portalPillars, programSections, researchThemes, resourceItems } from '../data/lab';
 
 type Props = {
   lang?: Locale;
@@ -13,19 +14,27 @@ const copy = home[lang] as {
   subtitle: string;
   primaryCta: string;
   secondaryCta: string;
-  themesTitle: string;
-  themes: { title: string; text: string }[];
-  projectTitle: string;
-  projectIntro: string;
-  mediaTitle: string;
-  mediaIntro: string;
-  outcomesTitle: string;
-  outcomesIntro: string;
+  pillarsTitle: string;
+  researchTitle: string;
+  researchIntro: string;
+  fieldTitle: string;
+  fieldIntro: string;
+  programTitle: string;
+  programIntro: string;
+  resourcesTitle: string;
+  resourcesIntro: string;
   invitationTitle: string;
   invitationText: string;
 };
+
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? '/' : value}` : value}`;
+const pillarPath = (id: string) => {
+  if (id === 'research') return path('/research/');
+  if (id === 'field-projects') return path('/field-projects/');
+  if (id === 'program') return path('/program/');
+  return path('/resources/');
+};
 ---
 
 <BaseLayout lang={lang} title={lang === 'en' ? 'Home' : undefined} description={site.description[lang]}>
@@ -34,25 +43,26 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
       <div>
         <span class="eyebrow">{copy.eyebrow}</span>
         <h1><span class="highlight-line">{copy.title}</span></h1>
+        <p class="hero-concept">Intergenerational Learning, Caring Communities, and Healthy Aging</p>
         <p class="hero-lede">{copy.subtitle}</p>
         <div class="hero-actions">
-          <a class="button primary" href={path('/projects/')}>{copy.primaryCta}</a>
-          <a class="button secondary" href={path('/media/')}>{copy.secondaryCta}</a>
+          <a class="button primary" href={path('/research/')}>{copy.primaryCta}</a>
+          <a class="button secondary" href={path('/resources/')}>{copy.secondaryCta}</a>
         </div>
       </div>
 
-      <div class="collage" aria-label={lang === 'en' ? 'Hand-drawn media collage placeholder' : '手繪影像拼貼佔位'}>
+      <div class="collage" aria-label={lang === 'en' ? 'LAB portal structure collage' : 'LAB Portal 架構拼貼'}>
         <div class="sticky-note">
-          {lang === 'en' ? 'Field note' : '現場筆記'}
-          <small>{lang === 'en' ? 'Add real activity dates here.' : '之後放正式活動日期。'}</small>
+          {lang === 'en' ? 'Tag once, reuse everywhere' : '成果只維護一次'}
+          <small>{lang === 'en' ? 'Research, field projects, program, resources.' : '用標籤串聯研究、場域、學程與成果。'}</small>
         </div>
         <div class="photo-card large">
           <span class="tape"></span>
-          <div class="photo-fill">{lang === 'en' ? 'Featured photo' : '代表照片'}</div>
+          <div class="photo-fill">{lang === 'en' ? 'Research x Field' : '研究主題 x 場域計畫'}</div>
         </div>
         <div class="photo-card small">
           <span class="tape"></span>
-          <div class="photo-fill">{lang === 'en' ? 'Video still' : '影片縮圖'}</div>
+          <div class="photo-fill">{lang === 'en' ? 'Program x Resources' : '學分學程 x 成果資源'}</div>
         </div>
         <svg class="doodle-arrow" viewBox="0 0 180 80" aria-hidden="true">
           <path d="M12 45 C 42 10, 82 12, 112 38 S 150 62, 168 32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
@@ -65,14 +75,78 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
   <section class="section reveal">
     <div class="container">
       <div class="section-heading">
-        <h2>{copy.themesTitle}</h2>
+        <h2>{copy.pillarsTitle}</h2>
       </div>
-      <div class="cards-grid">
-        {copy.themes.map((theme, index) => (
-          <article class="note-card">
-            <span class="card-number">{index + 1}</span>
-            <h3>{theme.title}</h3>
-            <p>{theme.text}</p>
+      <div class="portal-grid four">
+        {portalPillars.map((pillar) => (
+          <a class="portal-card linked" href={pillarPath(pillar.id)}>
+            <span class="tag-pill">{pillar.tags[0]}</span>
+            <h3>{pillar.title[lang]}</h3>
+            <p>{pillar.summary[lang]}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-heading">
+        <h2>{copy.researchTitle}</h2>
+        <p>{copy.researchIntro}</p>
+      </div>
+      <div class="portal-grid three">
+        {researchThemes.map((theme) => (
+          <article class="portal-card">
+            <span class="card-kicker">{theme.tags[0]}</span>
+            <h3>{theme.title[lang]}</h3>
+            <p>{theme.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+      <p class="project-strip-cta">
+        <a href={path('/research/')}>{lang === 'en' ? 'View all research themes ->' : '看完整研究主題 ->'}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-heading">
+        <h2>{copy.fieldTitle}</h2>
+        <p>{copy.fieldIntro}</p>
+      </div>
+      <div class="portal-grid two">
+        {fieldProjects.map((project) => (
+          <article class="portal-card field">
+            {project.eyebrow && <span class="tag-pill">{project.eyebrow[lang]}</span>}
+            <h3>{project.title[lang]}</h3>
+            <p>{project.summary[lang]}</p>
+            {project.detail && <p class="muted-note">{project.detail[lang]}</p>}
+          </article>
+        ))}
+      </div>
+      <p class="project-strip-cta">
+        <a href={path('/field-projects/')}>{lang === 'en' ? 'Explore field projects ->' : '看場域計畫 ->'}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container scrapbook">
+      <div class="section-heading stack">
+        <h2>{copy.programTitle}</h2>
+        <p>{copy.programIntro}</p>
+        <p class="project-strip-cta inline">
+          <a href={path('/program/')}>{lang === 'en' ? 'Open the credit program ->' : '看學分學程 ->'}</a>
+        </p>
+      </div>
+      <div class="relation-list">
+        {programSections.map((section) => (
+          <article>
+            <span class="card-kicker">{section.tags[0]}</span>
+            <h3>{section.title[lang]}</h3>
+            <p>{section.summary[lang]}</p>
           </article>
         ))}
       </div>
@@ -82,94 +156,40 @@ const path = (value: string) => `${base}${lang === 'en' ? `/en${value === '/' ? 
   <section class="section reveal">
     <div class="container">
       <div class="section-heading">
-        <h2>{copy.projectTitle}</h2>
-        <p>{copy.projectIntro}</p>
+        <h2>{copy.resourcesTitle}</h2>
+        <p>{copy.resourcesIntro}</p>
       </div>
-      <div class="project-strip">
-        <article class="project-card">
-          <div class="project-thumb">2022</div>
-          <div>
-            <h3>{lang === 'en' ? 'Rural Reverse-Flow Residency' : '洄游農村駐村'}</h3>
-            <p>{lang === 'en' ? 'Cross-departmental summer residency that surfaced moso bamboo as a community specialty and earned the Environmental Sustainability team award.' : '跨系所暑期駐村，發現麻竹筍特產、開發醬筍，獲環境永續獎。'}</p>
-          </div>
-        </article>
-        <article class="project-card">
-          <div class="project-thumb">2022</div>
-          <div>
-            <h3>{lang === 'en' ? 'Food and Farming Intergenerational Camp' : '食農教育代間體驗營'}</h3>
-            <p>{lang === 'en' ? 'Elders teach children, both plant and share meals — a complete field-to-table arc, 240+ participations.' : '長輩當小朋友的老師，共耕、共煮、共食，累計 240+ 人次。'}</p>
-          </div>
-        </article>
-        <article class="project-card">
-          <div class="project-thumb">2022</div>
-          <div>
-            <h3>{lang === 'en' ? 'Founding the Co-Prosperity Association' : '協助成立籐惜共好協會'}</h3>
-            <p>{lang === 'en' ? 'The community moved from "being served" to "self-development," running its own operations and grants.' : '社區從「被服務」轉「自主發展」，自行運營與申請計畫。'}</p>
-          </div>
-        </article>
+      <div class="resource-grid">
+        {resourceItems.slice(0, 3).map((item) => (
+          <article class="resource-card">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.tags.slice(0, 4).map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
       </div>
       <p class="project-strip-cta">
-        <a href={path('/projects/')}>{lang === 'en' ? 'View all projects →' : '看全部計畫與活動 →'}</a>
+        <a href={path('/resources/')}>{lang === 'en' ? 'Browse tagged resources ->' : '瀏覽標籤化成果資源 ->'}</a>
       </p>
     </div>
   </section>
 
   <section class="section reveal">
     <div class="container">
-      <div class="section-heading">
-        <h2>{copy.mediaTitle}</h2>
-        <p>{copy.mediaIntro}</p>
-      </div>
-      <div class="media-wall">
-        <div class="media-tile tall">{lang === 'en' ? 'Photo wall' : '照片牆'}</div>
-        <div class="media-tile">{lang === 'en' ? 'Workshop' : '工作坊'}</div>
-        <div class="media-tile">{lang === 'en' ? 'Community' : '社區現場'}</div>
-        <div class="media-tile wide media-video-embed">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/videoseries?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco"
-            title={lang === 'en' ? '100-Year Life Lab video playlist' : '青銀共創百歲人生影片播放清單'}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-      <p class="media-cta">
-        <a href="https://www.youtube.com/playlist?list=PLuLkwCRh9ebxXboy4qsWnmTrvBBPVvoco" target="_blank" rel="noopener noreferrer">
-          {lang === 'en' ? 'See the full YouTube playlist →' : '到 YouTube 看完整影片播放清單 →'}
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <section class="section reveal">
-    <div class="container scrapbook">
-      <div class="section-heading">
-        <h2>{copy.outcomesTitle}</h2>
-        <p>{copy.outcomesIntro}</p>
-      </div>
       <div class="home-stat-grid">
-        <article>
-          <div class="stat-num">170+</div>
-          <div class="stat-label">{lang === 'en' ? '"Vegetable Together" student participations' : '學生「菜一起」累計人次'}</div>
-        </article>
-        <article>
-          <div class="stat-num">300+</div>
-          <div class="stat-label">{lang === 'en' ? 'Health promotion participations' : '健康促進累計人次'}</div>
-        </article>
-        <article>
-          <div class="stat-num">240+</div>
-          <div class="stat-label">{lang === 'en' ? 'Cross-generation activity participations' : '跨世代活動累計人次'}</div>
-        </article>
-        <article>
-          <div class="stat-num">400+</div>
-          <div class="stat-label">{lang === 'en' ? 'Total participations in 2025' : '2025 年度總參與人次'}</div>
-        </article>
+        {labStats.map((stat) => (
+          <article>
+            <div class="stat-num">{stat.value}</div>
+            <div class="stat-label">{stat.label[lang]}</div>
+          </article>
+        ))}
       </div>
-      <p class="project-strip-cta">
-        <a href={path('/outcomes/')}>{lang === 'en' ? 'See full outcomes →' : '看完整成果 →'}</a>
-      </p>
     </div>
   </section>
 

@@ -1,0 +1,38 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { Locale } from '../data/site';
+
+type Props = {
+  lang?: Locale;
+  title: string;
+  intro: string;
+  targetPath: string;
+  targetLabel: string;
+};
+
+const { lang = 'zh-tw', title, intro, targetPath, targetLabel } = Astro.props;
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+const href = `${base}${targetPath}`;
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{lang === 'en' ? 'Moved in the new LAB Portal' : '已移到新的 LAB Portal 架構'}</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel migration-panel">
+      <h2>{lang === 'en' ? 'This content has a new home' : '這批內容有新的位置'}</h2>
+      <p>
+        {lang === 'en'
+          ? 'The site is now organized as a lab portal. The old route remains here as a guide so existing links do not feel broken.'
+          : '網站現在改成 LAB Portal 架構。這個舊頁面先保留作為導引，讓既有連結不會突然失效。'}
+      </p>
+      <a class="button primary" href={href}>{targetLabel}</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+import { partnerNames, teamGroups } from '../../data/lab';
+
+const lang = 'en';
+const title = 'Team & Partners';
+const intro = 'Team and partners includes the principal investigator, research team, student team, partner network, and contact entry.';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Team & Partners</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Lab team</h2>
+        <p>Public names and photos need lab confirmation; this first version presents roles and collaboration structure.</p>
+      </div>
+      <div class="portal-grid two">
+        {teamGroups.map((group) => (
+          <article class="portal-card">
+            <span class="card-kicker">{group.tags[0]}</span>
+            <h3>{group.title[lang]}</h3>
+            <p>{group.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>Partner Network</h2>
+        <p>These partners come from current source materials. Logos or photos require later permission and name checks.</p>
+      </div>
+      <div class="partner-cloud">
+        {partnerNames[lang].map((partner) => <span>{partner}</span>)}
+      </div>
+      <p class="project-strip-cta">
+        <a href="/qingyin-100-life-site/en/contact/">Contact us -></a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import { programSections, resourceItems } from '../data/lab';
+
+const lang = 'zh-tw';
+const title = '青銀共創跨域學分學程';
+const intro = '學程是課程、社區實習、暑期駐村與學生作品的上層容器，不再把課程和實習放在學程外面。';
+---
+
+<BaseLayout lang={lang} title={title} description={intro}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Credit Program</span>
+      <h1>{title}</h1>
+      <p class="page-lede">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>人才培育路徑</h2>
+        <p>課程地圖、健康老化與健康促進、社區實習、暑期駐村與學生作品都在這條路徑中互相連接。</p>
+      </div>
+      <div class="relation-list">
+        {programSections.map((section) => (
+          <article>
+            <span class="card-kicker">{section.tags[0]}</span>
+            <h3>{section.title[lang]}</h3>
+            <p>{section.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-panel">
+      <div class="section-heading">
+        <h2>學程相關成果</h2>
+        <p>教材、實習作品、駐村成果與研討會都可以同時回到學程與成果資源。</p>
+      </div>
+      <div class="resource-grid">
+        {resourceItems.filter((item) => item.relations.program.length > 0).map((item) => (
+          <article class="resource-card compact">
+            <div class="resource-meta">
+              <span>{item.year}</span>
+              <span>{item.type[lang]}</span>
+            </div>
+            <h3>{item.title[lang]}</h3>
+            <p>{item.summary[lang]}</p>
+            <div class="tag-row">
+              {item.relations.program.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

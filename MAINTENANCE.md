@@ -11,7 +11,7 @@
 
 ```bash
 # 1. 進到專案資料夾
-cd /Users/boboegg/bobohome-agent-claude/100_Todo/projects/qingyin-100-life-site
+cd /Users/boboegg/bobohome-agent-claude/300_Areas/青銀百歲人生網站
 
 # 2. 拉最新版（防止本機跟 GitHub 不同步）
 git pull
@@ -347,7 +347,7 @@ gh run list --repo Boboegg/qingyin-100-life-site --limit 3
 
 > 你要協助維護「青銀共創百歲人生」網站（https://github.com/Boboegg/qingyin-100-life-site）。
 >
-> 先讀 `/Users/boboegg/bobohome-agent-claude/100_Todo/projects/qingyin-100-life-site/MAINTENANCE.md` 學會怎麼改。
+> 先讀 `/Users/boboegg/bobohome-agent-claude/300_Areas/青銀百歲人生網站/MAINTENANCE.md` 學會怎麼改。
 > 寫內容前必讀同資料夾的 `CONTENT_SOURCE_OF_TRUTH.md`。
 > 修改前要本機 `npm run dev` 預覽 + `npm run build` 驗證；commit/push 前等 Bobo 拍板。
 

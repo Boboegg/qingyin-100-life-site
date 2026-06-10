@@ -17,7 +17,7 @@ Bobo 要幫老師做研究室/計畫網站，名稱為「青銀共創百歲人�
 ## 專案位置
 
 ```text
-/Users/boboegg/bobohome-agent-claude/100_Todo/projects/qingyin-100-life-site
+/Users/boboegg/bobohome-agent-claude/300_Areas/青銀百歲人生網站
 ```
 
 目前這個資料夾在 `bobohome-agent-claude` repo 裡，但 Bobo 原意是「直接在 GitHub 開一個專案」。建議 Claude 接手時把這個資料夾當成一個獨立 GitHub repo 推上去，不要直接混進 agent 主 repo，除非 Bobo 另行拍板。
@@ -151,7 +151,7 @@ base: '/qingyin-100-life-site'
 1. 先開本機預覽：
 
 ```bash
-cd /Users/boboegg/bobohome-agent-claude/100_Todo/projects/qingyin-100-life-site
+cd /Users/boboegg/bobohome-agent-claude/300_Areas/青銀百歲人生網站
 npm run dev
 ```
 
@@ -171,7 +171,7 @@ http://localhost:4321/qingyin-100-life-site/
 3. 若 Bobo 滿意第一版視覺，再做獨立 GitHub repo：
 
 ```bash
-cd /Users/boboegg/bobohome-agent-claude/100_Todo/projects/qingyin-100-life-site
+cd /Users/boboegg/bobohome-agent-claude/300_Areas/青銀百歲人生網站
 git init
 git add .
 git commit -m "Initial Astro site for Qingyin 100 Life"
@@ -205,4 +205,4 @@ src/data/people.ts
 
 請從這裡接：
 
-> 讀 `/Users/boboegg/bobohome-agent-claude/100_Todo/projects/qingyin-100-life-site/CLAUDE_HANDOFF.md`，接續「青銀共創百歲人生」Astro + GitHub Pages 雙語網站。先本機預覽手繪田野筆記風首頁，檢查 RWD 與語言切換；GitHub repo 尚未建立，因 gh token 失效，建立 repo / commit / push 前要等 Bobo 拍板。
+> 讀 `/Users/boboegg/bobohome-agent-claude/300_Areas/青銀百歲人生網站/CLAUDE_HANDOFF.md`，接續「青銀共創百歲人生」Astro + GitHub Pages 雙語網站。先本機預覽手繪田野筆記風首頁，檢查 RWD 與語言切換；GitHub repo 尚未建立，因 gh token 失效，建立 repo / commit / push 前要等 Bobo 拍板。

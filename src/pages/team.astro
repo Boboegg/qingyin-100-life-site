@@ -5,6 +5,8 @@ import { partnerNames, teamGroups } from '../data/lab';
 const lang = 'zh-tw';
 const title = '團隊與合作';
 const intro = '團隊與合作頁整理主持人、研究團隊、學生團隊與合作網絡，也保留對外聯絡入口。';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const contactHref = `${basePath}/contact/`;
 ---
 
 <BaseLayout lang={lang} title={title} description={intro}>
@@ -44,7 +46,7 @@ const intro = '團隊與合作頁整理主持人、研究團隊、學生團隊�
         {partnerNames[lang].map((partner) => <span>{partner}</span>)}
       </div>
       <p class="project-strip-cta">
-        <a href="/qingyin-100-life-site/contact/">聯絡合作 -></a>
+        <a href={contactHref}>聯絡合作 -></a>
       </p>
     </div>
   </section>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
-import { programSections, resourceItems } from '../../data/lab';
+import { programSections, resourceItems, resolveRelationTitles } from '../../data/lab';
 
 const lang = 'en';
 const title = 'Qingyin Intergenerational Credit Program';
@@ -50,7 +50,7 @@ const intro = 'The credit program is the container for courses, community practi
             <h3>{item.title[lang]}</h3>
             <p>{item.summary[lang]}</p>
             <div class="tag-row">
-              {item.relations.program.map((tag) => <span>{tag}</span>)}
+              {resolveRelationTitles(item.relations, 'program', lang).map((tag) => <span>{tag}</span>)}
             </div>
           </article>
         ))}

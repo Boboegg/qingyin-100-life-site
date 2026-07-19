@@ -80,26 +80,6 @@ export const pageCopy = {
       intro: '這裡將放研究室的理念、老師介紹、研究主題與合作脈絡。',
       sections: ['研究室使命', '老師與研究方向', '合作對象', '青銀共創的方法'],
     },
-    projects: {
-      title: '計畫與實踐',
-      intro: '以計畫故事頁整理進行中與歷年計畫，讓照片、影片與報導可以連回完整脈絡。',
-      sections: ['進行中計畫', '歷年計畫', '場域與合作夥伴', '計畫故事模板'],
-    },
-    media: {
-      title: '影像紀錄',
-      intro: '照片牆與影片索引會是網站的主要入口，適合用年份、主題與地點篩選。',
-      sections: ['照片拼貼牆', '影片精選', '活動現場', '素材上傳規則'],
-    },
-    outcomes: {
-      title: '成果與報導',
-      intro: '以剪報簿形式整理新聞、活動紀錄、成果摘要、簡報與公開文件。',
-      sections: ['媒體報導', '活動紀錄', '成果摘要', '公開資源'],
-    },
-    people: {
-      title: '團隊成員',
-      intro: '以名片牆呈現老師、研究生、助理、合作夥伴與歷屆成員。',
-      sections: ['主持人', '研究團隊', '合作夥伴', '歷屆成員'],
-    },
     contact: {
       title: '聯絡合作',
       intro: '放置合作邀請、聯絡方式、學校單位資訊與社群連結。',
@@ -111,26 +91,6 @@ export const pageCopy = {
       title: 'About',
       intro: 'This page will introduce the lab, principal investigator, research themes, and collaboration context.',
       sections: ['Mission', 'Research Direction', 'Partners', 'Our Approach'],
-    },
-    projects: {
-      title: 'Projects',
-      intro: 'Project story pages will connect ongoing and past work with photos, videos, and public reports.',
-      sections: ['Ongoing Projects', 'Past Projects', 'Sites and Partners', 'Story Template'],
-    },
-    media: {
-      title: 'Media',
-      intro: 'The media wall will become a visual index organized by year, topic, and place.',
-      sections: ['Photo Wall', 'Featured Videos', 'Field Moments', 'Media Guidelines'],
-    },
-    outcomes: {
-      title: 'Outcomes',
-      intro: 'News, activity records, outcome summaries, slide decks, and public documents will be collected here.',
-      sections: ['News Coverage', 'Activity Records', 'Outcome Highlights', 'Public Resources'],
-    },
-    people: {
-      title: 'People',
-      intro: 'A warm card wall for the principal investigator, students, assistants, partners, and alumni.',
-      sections: ['Principal Investigator', 'Research Team', 'Partners', 'Alumni'],
     },
     contact: {
       title: 'Contact',

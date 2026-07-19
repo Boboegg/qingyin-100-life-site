@@ -2,7 +2,10 @@ import type { Locale } from './site';
 
 type LocalizedString = Record<Locale, string>;
 
-export type TagCategory = 'research' | 'field' | 'program' | 'resource';
+export type RelationCategory = 'research' | 'field' | 'program';
+export type ContentStatus = 'confirmed' | 'pending';
+export type ResourceVisibility = 'public' | 'internal' | 'needs-consent';
+export type ResourceRelations = Record<RelationCategory, string[]>;
 
 export type PortalItem = {
   id: string;
@@ -10,17 +13,16 @@ export type PortalItem = {
   eyebrow?: LocalizedString;
   summary: LocalizedString;
   detail?: LocalizedString;
+  // Display keywords only. Linkable cross-page relations live on ResourceItem.relations.
   tags: string[];
 };
 
 export type ResourceItem = PortalItem & {
   year: string;
   type: LocalizedString;
-  relations: {
-    research: string[];
-    field: string[];
-    program: string[];
-  };
+  status: ContentStatus;
+  visibility: ResourceVisibility;
+  relations: ResourceRelations;
 };
 
 export const labIdentity = {
@@ -237,11 +239,38 @@ export const programSections: PortalItem[] = [
   },
 ];
 
+const relationRegistries: Record<RelationCategory, PortalItem[]> = {
+  research: researchThemes,
+  field: fieldProjects,
+  program: programSections,
+};
+
+export const resourceStatusLabels = {
+  confirmed: { 'zh-tw': '已確認', en: 'Confirmed' },
+  pending: { 'zh-tw': '待校正', en: 'Pending Review' },
+} satisfies Record<ContentStatus, LocalizedString>;
+
+export const resourceVisibilityLabels = {
+  public: { 'zh-tw': '可公開', en: 'Public' },
+  internal: { 'zh-tw': '內部素材', en: 'Internal' },
+  'needs-consent': { 'zh-tw': '待授權', en: 'Consent Needed' },
+} satisfies Record<ResourceVisibility, LocalizedString>;
+
+export function resolveTitle(category: RelationCategory, id: string, lang: Locale) {
+  return relationRegistries[category].find((item) => item.id === id)?.title[lang] ?? id;
+}
+
+export function resolveRelationTitles(relations: ResourceRelations, category: RelationCategory, lang: Locale) {
+  return relations[category].map((id) => resolveTitle(category, id, lang));
+}
+
 export const resourceItems: ResourceItem[] = [
   {
     id: 'tengliaozai-lantern-festival',
     year: '2026',
     type: { 'zh-tw': '活動紀錄', en: 'Activity Record' },
+    status: 'pending',
+    visibility: 'needs-consent',
     title: { 'zh-tw': '籐寮仔祈福燈會暨社規師成果展', en: 'Tengliaozai Blessing Lantern Festival and Community Planner Showcase' },
     summary: {
       'zh-tw': '以「月色不暗，心星為伴」為主題，呈現場域長期陪伴、社區共同參與與文化傳承成果。',
@@ -258,6 +287,8 @@ export const resourceItems: ResourceItem[] = [
     id: 'health-aging-ai-module',
     year: '2026',
     type: { 'zh-tw': '課程教材', en: 'Course Material' },
+    status: 'pending',
+    visibility: 'internal',
     title: { 'zh-tw': '健康老化與健康促進 AI 模組', en: 'Healthy Aging and Health Promotion AI Module' },
     summary: {
       'zh-tw': '把 AI 三原則、健康資訊判讀、營養、餐盤、睡眠與數位故事牆整合進代間共學課程。',
@@ -274,6 +305,8 @@ export const resourceItems: ResourceItem[] = [
     id: 'food-farming-camp',
     year: '2022',
     type: { 'zh-tw': '場域活動', en: 'Field Activity' },
+    status: 'pending',
+    visibility: 'needs-consent',
     title: { 'zh-tw': '食農教育代間體驗營', en: 'Food and Farming Intergenerational Camp' },
     summary: {
       'zh-tw': '長輩成為小朋友的老師，帶領認識蔬果、種植與共食，形成從產地到餐桌的代間學習活動。',
@@ -290,6 +323,8 @@ export const resourceItems: ResourceItem[] = [
     id: 'rural-reverse-flow',
     year: '2022',
     type: { 'zh-tw': '學生駐村', en: 'Student Residency' },
+    status: 'pending',
+    visibility: 'needs-consent',
     title: { 'zh-tw': '水保局大專生洄游農村競賽駐村', en: 'SWCB Rural Reverse-Flow Student Residency' },
     summary: {
       'zh-tw': '跨系所學生暑期駐村，發現麻竹筍特產，與美蓁阿嬤合作開發醬筍與產品 LOGO。',
@@ -306,6 +341,8 @@ export const resourceItems: ResourceItem[] = [
     id: 'intergenerational-symposium',
     year: '2021',
     type: { 'zh-tw': '研討會', en: 'Symposium' },
+    status: 'pending',
+    visibility: 'public',
     title: { 'zh-tw': '代間學習融入課程之教學研究成果發表暨代間方案學術研討會', en: 'Academic Symposium on Intergenerational Learning in Curricula' },
     summary: {
       'zh-tw': '線上會議與海報展，串接代間學習、教學研究成果與跨域學分學程招生資訊。',
@@ -400,10 +437,3 @@ export const labStats = [
     label: { 'zh-tw': '2025 年度總參與人次', en: 'Total participations in 2025' },
   },
 ];
-
-export const oldRouteMap = {
-  projects: { 'zh-tw': '/field-projects/', en: '/en/field-projects/' },
-  media: { 'zh-tw': '/resources/', en: '/en/resources/' },
-  outcomes: { 'zh-tw': '/resources/', en: '/en/resources/' },
-  people: { 'zh-tw': '/team/', en: '/en/team/' },
-} satisfies Record<string, Record<Locale, string>>;
